@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do You Wish to Enter?</title>
+    <style>
+        body {
+            background-color: #0a0f24;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        button {
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #e91e63;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="question">Do you wish to enter the site?</h1>
+    <div id="buttons">
+        <button onclick="nextStep(true)">Yes</button>
+        <button onclick="nextStep(false)">No</button>
+    </div>
+
+    <script>
+        let step = 0;
+        function nextStep(choice) {
+            const question = document.getElementById("question");
+            const buttons = document.getElementById("buttons");
+            
+            if (step === 0 && choice) {
+                question.innerHTML = "Are you sure?";
+                step++;
+            } else if (step === 1 && choice) {
+                question.innerHTML = "❤️ So like, it's been 4 seconds, do you wanna date? ❤️";
+                step++;
+            } else if (step === 2 && choice) {
+                question.innerHTML = "YAYYYYYYY🎉";
+                buttons.style.display = "none";
+            } else if (step >= 2 && !choice) {
+                question.innerHTML = "Pleaseeeeeee 🥺";
+            } else {
+                question.innerHTML = "❤️ So like, it's been 4 seconds, do you wanna date? ❤️";
+                step++;
+            }
+        }
+    </script>
+</body>
+</html>
